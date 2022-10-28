@@ -11831,3 +11831,42 @@ section#contact form#contactForm :-ms-input-placeholder {
   -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
   transform: translateX(-9%) translateY(-25%) rotate(45deg);
 }
+.btn-container-address {
+  text-align: left;
+}
+
+.hidden-address {
+  display: none;
+}
+
+#mask {
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+#modal {
+  background: #fff;
+  width: 80%;
+  padding: 24px;
+  border-radius: 4px;
+  position: fixed;
+  top: 20%;
+  left: 10%;
+  right: 10%;
+  text-align: center;
+  margin: 0 auto;
+  z-index: 2;
+}
+.hidden-postaddress {
+  display: none;
+}
+
+#btn2-text{
+  margin: 16px 0;
+  font-size: 14px;
+  color: red;
+}

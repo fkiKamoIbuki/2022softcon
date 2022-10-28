@@ -50,15 +50,39 @@
         </nav>
         <!-- gallery Grid-->
         <section class="page-section bg-light" id="gallery">
-            <div class="container">
+            <div class="container"> 
                 <div class="row">
                     <div class="text-center">
                         <h1>{{$spots[0]->getSpotName()}}</h1>
                     </div>
+                        <div class="btn-container-address">
+                            <button id="btn3">所在地</button>
+                            </div>
+                        <div id="mask" class="hidden-address"></div>
+                        <section id="modal" class="hidden-address">   
+                            <iframe src="https://maps.google.com/maps?output=embed&q={{$spots[0]->getaddress_lat()}},{{$spots[0]->getaddress_lng()}}&t=h&hl=ja&z=18" width="100%" height="500" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                        </section>
+                        <script>
+                            const btn3 = document.getElementById('btn3');
+                            const mask = document.getElementById('mask');
+                            const modal = document.getElementById('modal');
+
+                            btn3.addEventListener('click', () => {
+                            mask.classList.remove('hidden-address');
+                            modal.classList.remove('hidden-address');
+                            });
+
+                            mask.addEventListener('click', () => {
+                            mask.classList.add('hidden-address');
+                            modal.classList.add('hidden-address');
+                            });
+                            </script>
+                    </div>
+                    
                     <div class="button011">
                         <form method="GET" name="viewvideo" action="{{ route('spot.viewvideo') }}">
                             <input type="hidden" value="{{$images[0]->spot_id}}" name="spot_id">
-                            <a href="javascript:viewvideo.submit()">スライドショーで見る</a></li>
+                            <a href="javascript:viewvideo.submit()">スライドショーで見る</a>
                         </form>
                     </div>
                     <table class="table">
@@ -117,5 +141,6 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+<script>
 </div>
 </html>

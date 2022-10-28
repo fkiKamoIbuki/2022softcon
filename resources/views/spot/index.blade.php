@@ -50,7 +50,7 @@
         <!-- Masthead-->
         <header class="masthead">
             <div class="container">
-                <div class="masthead-subheading">隠れた絶景の共有</div>
+                <div class="masthead-subheading">隠れたスポットの共有</div>
                 <div class="masthead-heading text-uppercase">P a r T R I</div>
                 <a class="btn btn-primary btn-xl text-uppercase" href="{{route('spot.support')}}">アプリの使い方</a>
             </div>

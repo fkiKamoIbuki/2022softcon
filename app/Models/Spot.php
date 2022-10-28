@@ -33,4 +33,12 @@ class Spot extends Model
         return $this->comment->value('pic_content');
     }
 
+    public function getaddress_lat(){
+        return $this->address_lat;
+    }
+
+    public function getaddress_lng(){
+        return $this->address_lng;
+    }
+
 }

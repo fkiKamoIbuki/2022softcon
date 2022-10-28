@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id('id')->autoIncrement();
             $table->string('spot_name');
             $table->string('user_id');
+            $table->double('address_lat',8,5);
+            $table->double('address_lng',8,5);
             $table->timestamps();
         });
     }

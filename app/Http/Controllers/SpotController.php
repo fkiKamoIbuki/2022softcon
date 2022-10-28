@@ -10,6 +10,7 @@ use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Youtube;
 
 class SpotController extends Controller
 {
@@ -95,9 +96,21 @@ class SpotController extends Controller
             'image.required'  => '画像を入力してください。',
         ]);
 
+        if(is_null($request->address)){
+            $lat = $request->lat;
+            $lng = $request->lng;
+        }else{
+            $p = urlencode($request->address);
+            $xml = simplexml_load_file("http://www.geocoding.jp/api/?q=$p");
+            $lng = $xml->coordinate->lng;
+            $lat = $xml->coordinate->lat;
+        }
+
         $spot = new Spot;
         $spot->spot_name = $request->input('name');
         $spot->user_id = auth()->id();
+        $spot->address_lat = $lat;
+        $spot->address_lng = $lng;
         $spot->save();
 
         $comment = new Comment;
@@ -178,8 +191,16 @@ class SpotController extends Controller
         $video->video_content = base64_encode($criatevideo);
         $video->save();
         
+        $filePath = 'public/out.mp4';
+        $fileName = 'out.mp4';
+        
+        $mimeType = Storage::mimeType($filePath);
+        $headers = [['Content-Type' => $mimeType]];
+        
+        Storage::download($filePath, $fileName, $headers);
         Storage::delete('public/out.mp4');
         // return redirect()->route('spot.gallery',['spot_id' => $request->spot_id]);
+        // return redirect()->route('spot.viewvideo',['spot_id' => $request->spot_id]);
         return redirect()->route('spot.viewvideo',['spot_id' => $request->spot_id]);
     }
 
@@ -199,11 +220,25 @@ class SpotController extends Controller
         return view('spot.after');
     }
 
+    public function  youtube(Request $request){
+        $video = $request->video;
+        return view('spot.youtube',['video' => $video]);
+    }
 
-    // public function  tamesi(){
-    //     $spot_id = 6;
-    //     return view('spot.postvideo',['spot_id' => $spot_id]);
-    // }
+    public function postyoutube(Request $request)
+    {
+        // $video = Youtube::upload($request->file('video')->getPathName(), [
+        //     'title'       => $request->input('title'),
+        //     'description' => $request->input('description')
+        // ]);
+        $video = Youtube::upload($request->file('video')->getPathName(), [
+            'title'       => $request->input('title'),
+            'description' => $request->input('description')
+        ]);
+  
+        // return "Video uploaded successfully. Video ID is ". $video->getVideoId();
+        return redirect()->route('spot.index')->with('successMessage', '投稿が完了しました');
+    }
 
     // public function  posttamesi(Request $request){
     //     $video = new Video;

@@ -62,3 +62,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('spot/support','App\Http\Controllers\SpotController@support')->name('spot.support');
+// Route::get('spot/youtube', 'App\Http\Controllers\SpotController@youtube')->name('spot.addyoutube');
+Route::post('spot/youtube', 'App\Http\Controllers\SpotController@youtube')->name('spot.youtube');
+Route::post('spot/postyoutube', 'App\Http\Controllers\SpotController@postyoutube')->name('spot.postyoutube');
+Route::get('login/google', 'App\Http\Controllers\Auth\LoginController@redirectToGoogle');
+Route::get('login/google/callback', 'App\Http\Controllers\Auth\LoginController@handleGoogleCallback');
