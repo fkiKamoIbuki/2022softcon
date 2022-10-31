@@ -172,8 +172,13 @@ class SpotController extends Controller
             // var_dump($request->{'image'.$i});
         }
         if($request->music == 1){
-            $cmd = 'ffmpeg -r 0.2 -i ../storage/app/public/image%1d.JPG -i ../storage/app/public/music.mp3 -vcodec libx264 -pix_fmt yuv420p -r 30 ../storage/app/public/out.mp4';
-        }else{
+            $cmd = 'ffmpeg -r 0.2 -i ../storage/app/public/image%1d.JPG -i ../storage/app/public/music1.mp3 -vcodec libx264 -pix_fmt yuv420p -r 30 ../storage/app/public/out.mp4';
+        }elseif($request->music == 2){
+            $cmd = 'ffmpeg -r 0.2 -i ../storage/app/public/image%1d.JPG -i ../storage/app/public/music2.mp3 -vcodec libx264 -pix_fmt yuv420p -r 30 ../storage/app/public/out.mp4';
+        }elseif($request->music == 3){
+            $cmd = 'ffmpeg -r 0.2 -i ../storage/app/public/image%1d.JPG -i ../storage/app/public/music3.mp3 -vcodec libx264 -pix_fmt yuv420p -r 30 ../storage/app/public/out.mp4';
+        }
+        else{
             $cmd = 'ffmpeg -r 0.2 -i ../storage/app/public/image%1d.JPG -b:v 3000k -c:v h264 -pix_fmt yuv420p -r 30 ../storage/app/public/out.mp4';
         }
         // ffmpeg -r 0.5 -i ../storage/app/public/image%1d.png sample.mp4
@@ -220,9 +225,8 @@ class SpotController extends Controller
         return view('spot.after');
     }
 
-    public function  youtube(Request $request){
-        $video = $request->video;
-        return view('spot.youtube',['video' => $video]);
+    public function  youtube(){
+        return view('spot.youtube');
     }
 
     public function postyoutube(Request $request)

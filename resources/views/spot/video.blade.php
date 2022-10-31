@@ -55,7 +55,11 @@
                     <div class="text-center">
                         <h1>{{$spots[0]->getSpotName()}}をスライドショーで見る</h1>
                     </div>
+                    <div class="youtube-app"> 
+                        <a href="{{route('spot.youtube')}}">Youtubeにアップ</a>
+                    </div>
                     @foreach ($videos as $video)
+                    
                         <div class="col-lg-4 col-sm-6 mb-4">
                             <!-- gallery item 1-->
                             <div class="gallery-item">
@@ -64,13 +68,6 @@
                                     <video controls autoplay muted class="img-thumbnail">
                                         <source src="data:video/mp4;base64,{{$video->getVideo()}}">
                                     </video>
-                                    <form method="POST" action="{{route('spot.youtube')}}" enctype="multipart/form-data">
-                                    @csrf
-                                        <div> 
-                                            <input type="hidden" value="data:video/mp4;base64,{{$video->getVideo()}}" name="video">
-                                            <button type="submit">Youtubeにアップ
-                                        </div>
-                                    </form>
                                         <!-- <img class="img-fluid" src="../../assets/img/gallery/you.jpg" alt="..." /> -->
                                     <!-- </a> -->
                                     <div class="gallery-caption" data-bs-toggle="modal">

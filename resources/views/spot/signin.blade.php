@@ -85,7 +85,7 @@
                 <script src="{{ url('/') }}/dist/js/flat-ui.min.js"></script>
                 <script src="{{ url('/') }}/assets/js/prettify.js"></script>
                 <script src="{{ url('/') }}/assets/js/application.js"></script>
-            
+            </body>
         </div>
 
         <footer class="footer py-4">
@@ -106,4 +106,4 @@
                 </div>
             </div>
         </footer>
-</html
+</html>

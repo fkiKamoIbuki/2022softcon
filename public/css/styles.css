@@ -2185,7 +2185,7 @@ progress {
 
 .form-control {
   display: block;
-  width: 100%;
+  width: 30%;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   font-weight: 400;
@@ -11787,11 +11787,11 @@ section#contact form#contactForm :-ms-input-placeholder {
 
 .form-info{
   text-align: center;
-  margin-top: 20%;
+  margin-top: 10%;
 }
 
 .footer-margin{
-  margin-top: 25%;
+  margin-top: 10%;
 }
 
 .text-margin {
@@ -11869,4 +11869,15 @@ section#contact form#contactForm :-ms-input-placeholder {
   margin: 16px 0;
   font-size: 14px;
   color: red;
+}
+
+.youtube-app {
+  text-align: center;
+  margin-bottom: 3%;
+}
+
+.spotform-info{
+  text-align: center;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }

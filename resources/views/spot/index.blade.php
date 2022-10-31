@@ -40,9 +40,6 @@
                         <li class="nav-item"><a class="nav-link" href="{{route('spot.signup')}}">新規登録</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{route('spot.signin')}}">ログイン</a></li>
                         @endif
-                        <!-- <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li> -->
                     </ul>
                 </div>
             </div>
@@ -55,24 +52,9 @@
                 <a class="btn btn-primary btn-xl text-uppercase" href="{{route('spot.support')}}">アプリの使い方</a>
             </div>
         </header>
-        <!--Login-->
-        <!-- <section class="page-section" id="post">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">投稿する</h2> -->
-                    <!-- <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
-                    <!-- <a class="btn btn-primary btn-xl text-uppercase" href="post.html">投稿画面へいく</a>
-
-                </div>
-            </div>
-        </section> -->
         <!-- gallery Grid-->
         <section class="page-section bg-light" id="gallery">
             <div class="container">
-                <div class="text-center">
-                    <!-- <h2 class="section-heading text-uppercase">gallery</h2> -->
-                    <!-- <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
-                </div>
                 <div class="row">
                     @foreach ($images as $image)
                         <div class="col-lg-4 col-sm-6 mb-4">
@@ -96,94 +78,9 @@
                             </div>
                         </div>
                     @endforeach
-                    <!-- <div class="col-lg-4 col-sm-6 mb-4"> -->
-                        <!-- gallery item浩 2-->
-                        <!-- <div class="gallery-item">
-                            <a class="gallery-link" data-bs-toggle="modal" href="#galleryModal2">
-                                <div class="gallery-hover">
-                                    <div class="gallery-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <video class="img-fluid" src="../../assets/movie/スライドショー_養浩館.mp4" alt="..." ></video>
-                            </a>
-                            <div class="gallery-caption">
-                                <div class="gallery-caption-heading">Explore</div>
-                                <div class="gallery-caption-subheading text-muted">Graphic Design</div>
-                            </div>
-                        </div> -->
-                    <!-- </div> -->
-                    <!-- <div class="col-lg-4 col-sm-6 mb-4"> -->
-                        <!-- gallery item 3-->
-                        <!-- <div class="gallery-item">
-                            <a class="gallery-link" data-bs-toggle="modal" href="#galleryModal3">
-                                <div class="gallery-hover">
-                                    <div class="gallery-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="../../assets/img/gallery/3.jpg" alt="..." />
-                            </a>
-                            <div class="gallery-caption">
-                                <div class="gallery-caption-heading">Finish</div>
-                                <div class="gallery-caption-subheading text-muted">Identity</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0"> -->
-                        <!-- gallery item 4-->
-                        <!-- <div class="gallery-item">
-                            <a class="gallery-link" data-bs-toggle="modal" href="#galleryModal4">
-                                <div class="gallery-hover">
-                                    <div class="gallery-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="../../assets/img/gallery/4.jpg" alt="..." />
-                            </a>
-                            <div class="gallery-caption">
-                                <div class="gallery-caption-heading">Lines</div>
-                                <div class="gallery-caption-subheading text-muted">Branding</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0"> -->
-                        <!-- gallery item 5-->
-                        <!-- <div class="gallery-item">
-                            <a class="gallery-link" data-bs-toggle="modal" href="#galleryModal5">
-                                <div class="gallery-hover">
-                                    <div class="gallery-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="../../assets/img/gallery/5.jpg" alt="..." />
-                            </a>
-                            <div class="gallery-caption">
-                                <div class="gallery-caption-heading">Southwest</div>
-                                <div class="gallery-caption-subheading text-muted">Website Design</div>
-                            </div>
-                        </div>
-                    </div> -->
-                    <!-- <div class="col-lg-4 col-sm-6"> -->
-                        <!-- gallery item 6-->
-                        <!-- <div class="gallery-item">
-                            <a class="gallery-link" data-bs-toggle="modal" href="#galleryModal6">
-                                <div class="gallery-hover">
-                                    <div class="gallery-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="../../assets/img/gallery/6.jpg" alt="..." />
-                            </a>
-                            <div class="gallery-caption">
-                                <div class="gallery-caption-heading">Window</div>
-                                <div class="gallery-caption-subheading text-muted">Photography</div>
-                            </div>
-                        </div> -->
-                    <!-- </div> -->
                 </div>
             </div>
         </section>
-
-               
-        <!-- <section class="page-section" id="logout">
-            <div class="container">
-                <div class="text-center"> -->
-                    <!-- <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
-                    <!-- <a class="btn btn-primary btn-xl text-uppercase" href="logout.html">ログアウト</a>
-                </div>
-            </div>
-        </section> -->
 
         <footer class="footer py-4">
             <div class="container">
@@ -201,11 +98,6 @@
                 </div>
             </div>
         </footer>
-
-
-        <!-- gallery Modals-->
-        <!-- gallery item 1 modal popup-->
-        
         <div class="gallery-modal modal fade" id="galleryModal1" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -240,182 +132,6 @@
                 </div>
             </div>
         </div>
-        <!-- gallery item 2 modal popup-->
-        <!-- <div class="gallery-modal modal fade" id="galleryModal2" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="../../assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body"> -->
-                                    <!-- Project details-->
-                                    <!-- <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="../../assets/img/gallery/2.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Explore
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Graphic Design
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Close Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!-- gallery item 3 modal popup-->
-        <!-- <div class="gallery-modal modal fade" id="galleryModal3" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="../../assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body"> -->
-                                    <!-- Project details-->
-                                    <!-- <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="../../assets/img/gallery/3.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Finish
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Identity
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Close Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!-- gallery item 4 modal popup-->
-        <!-- <div class="gallery-modal modal fade" id="galleryModal4" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="../../assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body"> -->
-                                    <!-- Project details-->
-                                    <!-- <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="../../assets/img/gallery/4.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Lines
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Branding
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Close Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!-- gallery item 5 modal popup-->
-        <!-- <div class="gallery-modal modal fade" id="galleryModal5" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="../../assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body"> -->
-                                    <!-- Project details-->
-                                    <!-- <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="../../assets/img/gallery/5.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Southwest
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Website Design
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Close Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!-- gallery item 6 modal popup-->
-        <!-- <div class="gallery-modal modal fade" id="galleryModal6" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="../../assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body"> -->
-                                    <!-- Project details-->
-                                    <!-- <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="../../assets/img/gallery/6.jpg alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Window
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Photography
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Close Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
