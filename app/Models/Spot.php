@@ -41,4 +41,8 @@ class Spot extends Model
         return $this->address_lng;
     }
 
+    public function getVideo(){
+        return $this->video->value('video_content');
+    }
+
 }

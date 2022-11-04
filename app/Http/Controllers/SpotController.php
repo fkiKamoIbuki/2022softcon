@@ -8,6 +8,7 @@ use App\Models\Spot;
 use App\Models\Comment;
 use App\Models\Video;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Youtube;
@@ -70,8 +71,9 @@ class SpotController extends Controller
     }
 
     public function index(){
-        $images = Spot::has('comment')->get();
-        return view('spot.index', ['images' => $images]);
+        $images = Spot::has('comment')->orderBy('id','desc')->get();
+        $videos = Spot::has('video')->orderBy('id','desc')->get();
+        return view('spot.index', ['images' => $images,'videos' => $videos]);
     }
 
     public function  gallery(Request $request){
@@ -202,7 +204,15 @@ class SpotController extends Controller
         $mimeType = Storage::mimeType($filePath);
         $headers = [['Content-Type' => $mimeType]];
         
-        Storage::download($filePath, $fileName, $headers);
+        if(!is_null($request->title)){
+            $getvideo = Storage::get('public/out.mp4');
+            $postvideo = new UploadedFile(storage_path("app/public/out.mp4"),$getvideo);
+            $video = Youtube::upload($postvideo->getPathName(), [
+                'title'       => $request->input('title'),
+                'description' => $request->input('description')
+            ]);
+        }
+
         Storage::delete('public/out.mp4');
         // return redirect()->route('spot.gallery',['spot_id' => $request->spot_id]);
         // return redirect()->route('spot.viewvideo',['spot_id' => $request->spot_id]);

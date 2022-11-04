@@ -33,12 +33,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         @if(Auth::check())
-                        <li class="nav-item"><a class="nav-link" href="{{ route('spot.logout') }}">ログアウト</a></li>
-                        
-                            <form method="GET" name="video" action="{{ route('spot.video') }}">
-                                <input type="hidden" value="{{$spots[0]->id}}" name="spot_id">
-                                <li class="nav-item"><a class="nav-link" href="javascript:video.submit()">スライドショーを作成</a></li>
-                            </form>      
+                        <li class="nav-item"><a class="nav-link" href="{{ route('spot.logout') }}">ログアウト</a></li>     
                         @else
                         <li class="nav-item"><a class="nav-link" href="{{route('spot.signup')}}">新規登録</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{route('spot.signin')}}">ログイン</a></li>
@@ -53,10 +48,13 @@
             <div class="container">
                 <div class="row">
                     <div class="text-center">
-                        <h1>{{$spots[0]->getSpotName()}}をスライドショーで見る</h1>
+                        <h1>{{$spots[0]->getSpotName()}}をショート動画で見る</h1>
                     </div>
                     <div class="youtube-app"> 
-                        <a href="{{route('spot.youtube')}}">Youtubeにアップ</a>
+                            <form method="GET" name="video" action="{{ route('spot.video') }}">
+                                <input type="hidden" value="{{$spots[0]->id}}" name="spot_id">
+                                <button type="submit">ショート動画を作成</button>
+                            </form> 
                     </div>
                     @foreach ($videos as $video)
                     

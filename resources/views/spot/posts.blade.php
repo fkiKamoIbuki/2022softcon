@@ -147,6 +147,7 @@
                         緯度：<input type="text" id="lat" name="lat" value="" size="20">経度：<input type="text" id="lng" name="lng" value="" size="20">
                         
                         </body><td>
+
                 <tr><th></th><td><button type="submit">スポット投稿</button></td></tr>
               </table> 
             </form>

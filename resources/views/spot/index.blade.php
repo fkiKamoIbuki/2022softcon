@@ -65,7 +65,7 @@
                                         <form method="GET" action="{{ route('spot.gallery') }}">
                                             <div> 
                                                 <input type="hidden" value="{{$image->id}}" name="spot_id">
-                                                <button type="submit"><img class="img-thumbnail" src="data:image/png;base64,{{$image->getImage()}}" alt="image">
+                                                <button type="submit"><img class="img-thumbnail" src="data:image/png;base64,{{$image->getImage()}}" alt="image"></button>
                                             </div>
                                         </form>
                                         <!-- <img class="img-fluid" src="../../assets/img/gallery/you.jpg" alt="..." /> -->
@@ -98,40 +98,7 @@
                 </div>
             </div>
         </footer>
-        <div class="gallery-modal modal fade" id="galleryModal1" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="../../assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">養浩館</h2>
-                                    <p class="item-intro text-muted"></p>
-                                    <video class="img-fluid d-block mx-auto" src="../../movie/スライドショー_養浩館.mp4" loop controls></video>
-                                    <p>福井県福井市にある美しい庭園、「養浩館庭園」は、アメリカの庭園専門誌"Sukiya Living Magazine"の2020年日本庭園全国ランキングで第8位に選ばれております。養浩館庭園は2007年にランクインしてから、14年連続でトップ10以内に入っています。この庭園にはまさに、『侘び寂び』という言葉が似合います。</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>撮影日:</strong>
-                                            2022/9/16
-                                        </li>
-                                        <li>
-                                            <strong>アクセス:</strong>
-                                            福井県 福井市 宝永3丁目11-36
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        戻る
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->

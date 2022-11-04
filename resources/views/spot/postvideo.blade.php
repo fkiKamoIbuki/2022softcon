@@ -127,7 +127,18 @@
                     <label><input type="radio" name="music" value="3">賑やか</label>
                     <label><input type="radio" name="music" value="0">なし</label>
                 </td></tr>
-                <tr><th></th><td><button type="submit">スライドショー作成</button></td></tr>
+                <tr><th></th><td><button type="button" id="formbtn">Youtubeにアップ</button>
+                <p id="formbtn-form1" class="hidden"><input type="text" name="title" placeholder="動画のタイトル" /></p>
+                <p id="formbtn-form2" class="hidden"><textarea name="description" cols="30" rows="10" placeholder="動画の概要"></textarea></p>
+                <script>const formbtn = document.getElementById('formbtn');
+                  const formbtnform1 = document.getElementById('formbtn-form1');
+                  const formbtnform2 = document.getElementById('formbtn-form2');
+
+                    formbtn.addEventListener('click', () => {
+                    formbtnform1.classList.toggle('hidden');
+                    formbtnform2.classList.toggle('hidden');
+                  });</script></td></tr>
+                <tr><th></th><td><button type="submit">ショート動画作成</button></td></tr>
               </table> 
             </form>
             <br>
