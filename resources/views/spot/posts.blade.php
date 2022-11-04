@@ -56,7 +56,7 @@
               <table>
                 @csrf 
                 <tr><th>スポット名</th><td><input type="text" name="name"></td></tr>
-                <tr><th>コメント</th><td><textarea name="comment" cols="20" rows="5" placeholder="コメント"></textarea></td></tr>
+                <tr><th>コメント</th><td><input type="text" name="comment"></td></tr>
                 <tr><th>画像</th><td><input id="image" type="file" name="image"></td></tr>
                 <tr><th>住所</th><td>	
                   <input type="text" name="address" id="address" placeholder="例:福井県福井市大手2-9-1">
@@ -116,28 +116,6 @@
                           });
                           
                         }
-                        function clickMap(geo, map) {
-                          lat = geo.lat();
-                          lng = geo.lng();
-                        
-                          //小数点以下6桁に丸める場合
-                          //lat = Math.floor(lat * 1000000) / 1000000);
-                          //lng = Math.floor(lng * 1000000) / 1000000);
-                        
-                          document.getElementById('lat').value = lat;
-                          document.getElementById('lng').value = lng;
-                        
-                          //中心にスクロール
-                          map.panTo(geo);
-                        
-                          //マーカーの更新
-                          marker.setMap(null);
-                          marker = null;
-                          marker = new google.maps.Marker({
-                            map: map, position: geo 
-                          });
-                          
-                        }
                         </script>
                         
                         <body onload="javascript:init();">
@@ -147,7 +125,6 @@
                         緯度：<input type="text" id="lat" name="lat" value="" size="20">経度：<input type="text" id="lng" name="lng" value="" size="20">
                         
                         </body><td>
-
                 <tr><th></th><td><button type="submit">スポット投稿</button></td></tr>
               </table> 
             </form>

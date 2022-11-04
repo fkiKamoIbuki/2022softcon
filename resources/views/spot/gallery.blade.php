@@ -82,7 +82,7 @@
                     <div class="button011">
                         <form method="GET" name="viewvideo" action="{{ route('spot.viewvideo') }}">
                             <input type="hidden" value="{{$images[0]->spot_id}}" name="spot_id">
-                            <a href="javascript:viewvideo.submit()">ショート動画で見る</a>
+                            <a href="javascript:viewvideo.submit()">スライドショーで見る</a>
                         </form>
                     </div>
                     <table class="table">

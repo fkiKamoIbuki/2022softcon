@@ -45,12 +45,26 @@
             </div>
         </nav>
         <!-- Masthead-->
-        <header class="masthead">
-            <div class="container">
+        <header>
+            <!-- <div class="container">
                 <div class="masthead-subheading">隠れたスポットの共有</div>
                 <div class="masthead-heading text-uppercase">P a r T R I</div>
                 <a class="btn btn-primary btn-xl text-uppercase" href="{{route('spot.support')}}">アプリの使い方</a>
-            </div>
+            </div> -->
+                <div class="mv">
+                <!--  メイン全体を囲うdiv  -->
+                <div class="mv-wrap">
+                <!--   薄いレイヤー   -->
+                <div class="mv-bg"></div>
+                <!--   videoタグ   -->
+                <video id="video" webkit-playsinline="" playsinline="" muted="" autoplay="" loop=""
+                src="data:video/mp4;base64,{{$videos[0]->getVideo()}}"></video>
+                <!--   動画の上に載せるテキスト   -->
+                    <div class="mv-txt">隠れたスポットの共有</div>
+                    <div class="mv-txt1">P a r T R I</div>
+                    <a class="btn btn-primary btn-xl text-uppercase" href="{{route('spot.support')}}">アプリの使い方</a>
+                </div>
+                </div>
         </header>
         <!-- gallery Grid-->
         <section class="page-section bg-light" id="gallery">
