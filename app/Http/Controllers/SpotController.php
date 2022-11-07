@@ -11,7 +11,9 @@ use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
 use Youtube;
+use App\Mail\SpotMail;
 
 class SpotController extends Controller
 {
@@ -127,6 +129,8 @@ class SpotController extends Controller
 
     public function  addposts(Request $request){
         $spot_id = $request;
+        $user_id = comment::select('user_id')->where('spot_id',$spot_id)->get();
+        
         return view('spot.addposts',$spot_id);
     }
 
@@ -149,6 +153,11 @@ class SpotController extends Controller
             $comment->pic_content = null;
         }
         $comment->save();
+
+        $name = 'テスト ユーザー';
+        $email = 'fki2166225@stu.o-hara.ac.jp';
+
+        Mail::send(new SpotMail($name, $email));
 
         return redirect()->route('spot.gallery',['spot_id' => $request->spot_id]);
     }

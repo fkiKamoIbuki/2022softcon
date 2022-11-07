@@ -51,10 +51,12 @@
                         <h1>{{$spots[0]->getSpotName()}}をショート動画で見る</h1>
                     </div>
                     <div class="youtube-app"> 
+                            @if(Auth::check())
                             <form method="GET" name="video" action="{{ route('spot.video') }}">
                                 <input type="hidden" value="{{$spots[0]->id}}" name="spot_id">
                                 <button type="submit">ショート動画を作成</button>
                             </form> 
+                            @endif
                     </div>
                     @foreach ($videos as $video)
                     

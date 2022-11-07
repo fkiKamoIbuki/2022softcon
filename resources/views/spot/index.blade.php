@@ -60,9 +60,11 @@
                 <video id="video" webkit-playsinline="" playsinline="" muted="" autoplay="" loop=""
                 src="data:video/mp4;base64,{{$videos[0]->getVideo()}}"></video>
                 <!--   動画の上に載せるテキスト   -->
+                    <div class="text-center">
                     <div class="mv-txt">隠れたスポットの共有</div>
                     <div class="mv-txt1">P a r T R I</div>
-                    <a class="btn btn-primary btn-xl text-uppercase" href="{{route('spot.support')}}">アプリの使い方</a>
+                    <a class="btn btn-primary btn-xl" href="{{route('spot.support')}}">アプリの使い方</a>
+                    </div>
                 </div>
                 </div>
         </header>
