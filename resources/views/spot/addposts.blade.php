@@ -56,6 +56,12 @@
               <table>
                 @csrf 
                 <input type="hidden" value="{{$spot_id}}" name="spot_id">
+                <tr><th>宛先</th><td><select name="email" size="2">
+                    <option selected="selected" value="0">誰宛でもない</option>
+                    @foreach($poster_names as $poster_name)
+                        <option value="{{$poster_name->getId()}}">{{$poster_name->getName()}}</option>
+                    @endforeach
+                    </select></td></tr>
                 <tr><th>コメント</th><td><input type="text" name="comment"></td></tr>
                 <tr><th>画像</th><td><input id="image" type="file" name="image"></td></tr>
                 <tr><th></th><td><button type="submit">追加投稿</button></td></tr>

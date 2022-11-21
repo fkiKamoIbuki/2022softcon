@@ -31,4 +31,12 @@ class Comment extends Model
     public function getDateTime(){
         return $this->created_at;
     }
+
+    public function getId(){
+        return $this->user->id;
+    }
+
+    public function getEmail(){
+        return $this->user->email;
+    }
 }

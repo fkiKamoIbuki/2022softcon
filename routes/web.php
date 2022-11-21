@@ -16,8 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('spot/index','App\Http\Controllers\SpotController@index')->name('spot.index');
-Route::post('spot/index','App\Http\Controllers\SpotController@post')->name('spot.index');
+Route::get('index','App\Http\Controllers\SpotController@index')->name('spot.index');
+Route::post('index','App\Http\Controllers\SpotController@post')->name('spot.index');
 Route::get('spot/gallery','App\Http\Controllers\SpotController@gallery')->name('spot.gallery');
 Route::post('spot/gallery','App\Http\Controllers\SpotController@postgallery')->name('spot.gallery');
 Route::get('spot/posts','App\Http\Controllers\SpotController@posts')->name('spot.posts');
@@ -33,6 +33,7 @@ Route::get('spot/viewvideo',['uses' => 'App\Http\Controllers\SpotController@view
 Route::get('spot/video',['uses' => 'App\Http\Controllers\SpotController@video','as' => 'spot.video']);
 Route::post('spot/video',['uses' => 'App\Http\Controllers\SpotController@postvideo','as' => 'spot.video']);
 Route::get('spot/tamesi',['uses' => 'App\Http\Controllers\SpotController@tamesi','as' => 'spot.tamesi']);
+Route::get('spot/search',['uses' => 'App\Http\Controllers\SpotController@search','as' => 'spot.search']);
 // Route::post('spot/tamesi',['uses' => 'App\Http\Controllers\SpotController@posttamesi','as' => 'spot.tamesi']);
 Route::get('spot/', function () {return redirect('spot/index');});
 // Route::group(['middleware' => 'auth'],function(){

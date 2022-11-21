@@ -41,7 +41,7 @@ class SpotController extends Controller
         $user->save();
        
         // リダイレクト
-        return redirect()->route('spot.index');
+        return redirect()->route('spot.signin');
     }
 
     public function getLogout(){
@@ -73,7 +73,7 @@ class SpotController extends Controller
     }
 
     public function index(){
-        $images = Spot::has('comment')->orderBy('id','desc')->get();
+        $images = Spot::has('comment')->orderBy('id','desc')->paginate(6);
         $videos = Spot::has('video')->orderBy('id','desc')->get();
         return view('spot.index', ['images' => $images,'videos' => $videos]);
     }
@@ -128,10 +128,10 @@ class SpotController extends Controller
     }
 
     public function  addposts(Request $request){
-        $spot_id = $request;
-        $user_id = comment::select('user_id')->where('spot_id',$spot_id)->get();
-        
-        return view('spot.addposts',$spot_id);
+        $spot_id = $request->spot_id;
+        $poster_names = Comment::select('user_id')->where('spot_id',$request->spot_id)->groupBy('user_id')->get();
+
+        return view('spot.addposts',['spot_id' => $spot_id,'poster_names' => $poster_names]);
     }
 
     public function  postaddposts(Request $request){
@@ -143,21 +143,33 @@ class SpotController extends Controller
             'comment.required' => 'コメントを入力してください。',
         ]);
 
-        $comment = new Comment;
-        $comment->comment = $request->input('comment');
-        $comment->spot_id = $request->input('spot_id');
-        $comment->user_id = auth()->id();
-        if(isset($request->image)){
-            $comment->pic_content = base64_encode(file_get_contents($request->image));
+        if($request->email != "0"){
+            $name = Auth::user()->name;
+            $email = User::select('email')->where('id',$request->email)->get();
+            [$toname] = User::select('name')->where('id',$request->email)->get();
+            Mail::send(new SpotMail($name, $email,$request->comment));
+            $comment = new Comment;
+            $comment->comment = "@".$toname["name"].":".$request->input('comment');
+            $comment->spot_id = $request->input('spot_id');
+            $comment->user_id = auth()->id();
+            if(isset($request->image)){
+                $comment->pic_content = base64_encode(file_get_contents($request->image));
+            }else{
+                $comment->pic_content = null;
+            }
+            $comment->save();
         }else{
-            $comment->pic_content = null;
+            $comment = new Comment;
+            $comment->comment = $request->input('comment');
+            $comment->spot_id = $request->input('spot_id');
+            $comment->user_id = auth()->id();
+            if(isset($request->image)){
+                $comment->pic_content = base64_encode(file_get_contents($request->image));
+            }else{
+                $comment->pic_content = null;
+            }
+            $comment->save();
         }
-        $comment->save();
-
-        $name = 'テスト ユーザー';
-        $email = 'fki2166225@stu.o-hara.ac.jp';
-
-        Mail::send(new SpotMail($name, $email));
 
         return redirect()->route('spot.gallery',['spot_id' => $request->spot_id]);
     }
@@ -262,12 +274,34 @@ class SpotController extends Controller
         // return "Video uploaded successfully. Video ID is ". $video->getVideoId();
         return redirect()->route('spot.index')->with('successMessage', '投稿が完了しました');
     }
+    public function search(Request $request)
+    {
+        $videos = Spot::has('video')->orderBy('id','desc')->get();
+        // ユーザー一覧をページネートで取得
+        $images = Spot::has('comment')->orderBy('id','desc')->get();
 
-    // public function  posttamesi(Request $request){
-    //     $video = new Video;
-    //     $video->spot_id = $request->input('spot_id');
-    //     $video->user_id = auth()->id();
-    //     $video->video_content = base64_encode(file_get_contents($request->image1));
-    //     $video->save();
-    // }
+        // 検索フォームで入力された値を取得する
+        $search = $request->input('search');
+
+       // もし検索フォームにキーワードが入力されたら
+        if ($search) {
+
+            // 全角スペースを半角に変換
+            $spaceConversion = mb_convert_kana($search, 's');
+
+            // 単語を半角スペースで区切り、配列にする（例："山田 翔" → ["山田", "翔"]）
+            $wordArraySearched = preg_split('/[\s,]+/', $spaceConversion, -1, PREG_SPLIT_NO_EMPTY);
+
+            // 単語をループで回し、ユーザーネームと部分一致するものがあれば、$queryとして保持される
+            foreach($wordArraySearched as $value) {
+                $query = Spot::has('comment')->orderBy('id','desc')->where('spot_name', 'like', '%'.$value.'%')->get();
+            }
+
+            // 上記で取得した$queryをページネートにし、変数$usersに代入
+            $images = $query;
+        }
+
+        // ビューにusersとsearchを変数として渡す
+        return view('spot.index', ['images' => $images,'videos' => $videos,'search' => $search]);
+    }
 }

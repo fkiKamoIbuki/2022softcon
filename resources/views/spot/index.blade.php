@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Agency - Start Bootstrap Theme</title>
+        <title>ParTRI</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="../../assets/favicon.png"/>
         <!-- Font Awesome icons (free version)-->
@@ -46,11 +46,6 @@
         </nav>
         <!-- Masthead-->
         <header>
-            <!-- <div class="container">
-                <div class="masthead-subheading">隠れたスポットの共有</div>
-                <div class="masthead-heading text-uppercase">P a r T R I</div>
-                <a class="btn btn-primary btn-xl text-uppercase" href="{{route('spot.support')}}">アプリの使い方</a>
-            </div> -->
                 <div class="mv">
                 <!--  メイン全体を囲うdiv  -->
                 <div class="mv-wrap">
@@ -69,7 +64,13 @@
                 </div>
         </header>
         <!-- gallery Grid-->
-        <section class="page-section bg-light" id="gallery">
+        <section class="page-section-index bg-light " id="gallery">
+            <div class="searchform-margin">
+                <form method="GET" action="{{ route('spot.search') }}">
+                    <input type="search" placeholder="スポット名を入力" name="search" value="@if (isset($search)) {{ $search }} @endif">
+                        <button type="submit">検索</button>
+                </form>
+            </div>
             <div class="container">
                 <div class="row">
                     @foreach ($images as $image)
@@ -96,7 +97,66 @@
                     @endforeach
                 </div>
             </div>
+            <!-- paginate -->
+            <div class="paginate-center">
+                    @if ( $images->hasPages() )
+                        @if ($images->lastPage() > 1)
+                        <ul class="pagination">
+                            <li class="page-item {{ ($images->currentPage() == 1) ? ' disabled' : '' }}">
+                                <a class="page-link" href="{{ $images->url(1) }}">First Page</a>
+                            </li>
+                            <li class="page-item {{ ($images->currentPage() == 1) ? ' disabled' : '' }}">
+                                <a class="page-link" href="{{ $images->url(1) }}">
+                                    <span aria-hidden="true">«</span>
+                                    {{-- Previous --}}
+                                </a>
+                            </li>
+                            @for ($i = 1; $i <= $images->lastPage(); $i++)
+                                <li class="page-item {{ ($images->currentPage() == $i) ? ' active' : '' }}">
+                                    <a class="page-link" href="{{ $images->url($i) }}">{{ $i }}</a>
+                                </li>
+                            @endfor
+                            <li class="page-item {{ ($images->currentPage() == $images->lastPage()) ? ' disabled' : '' }}">
+                                <a class="page-link" href="{{ $images->url($images->currentPage()+1) }}" >
+                                    <span aria-hidden="true">»</span>
+                                    {{-- Next --}}
+                                </a>
+                            </li>
+                            <li class="page-item {{ ($images->currentPage() == $images->lastPage()) ? ' disabled' : '' }}">
+                                <a class="page-link" href="{{ $images->url($images->lastPage()) }}">Last Page</a>
+                            </li>
+                        </ul>
+                        @endif
+                    @else
+                        <ul class="pagination">
+                            <li class="page-item {{ ($images->currentPage() == 1) ? ' disabled' : '' }}">
+                                <a class="page-link" href="{{ $images->url(1) }}">First Page</a>
+                            </li>
+                            <li class="page-item {{ ($images->currentPage() == 1) ? ' disabled' : '' }}">
+                                <a class="page-link" href="{{ $images->url(1) }}">
+                                    <span aria-hidden="true">«</span>
+                                    {{-- Previous --}}
+                                </a>
+                            </li>
+                            @for ($i = 1; $i <= $images->lastPage(); $i++)
+                                <li class="page-item {{ ($images->currentPage() == $i) ? ' active' : '' }}">
+                                    <a class="page-link" href="{{ $images->url($i) }}">{{ $i }}</a>
+                                </li>
+                            @endfor
+                            <li class="page-item {{ ($images->currentPage() == $images->lastPage()) ? ' disabled' : '' }}">
+                                <a class="page-link" href="{{ $images->url($images->currentPage()+1) }}" >
+                                    <span aria-hidden="true">»</span>
+                                    {{-- Next --}}
+                                </a>
+                            </li>
+                            <li class="page-item {{ ($images->currentPage() == $images->lastPage()) ? ' disabled' : '' }}">
+                                <a class="page-link" href="{{ $images->url($images->lastPage()) }}">Last Page</a>
+                            </li>
+                        </ul>
+                    @endif
+            </div>
         </section>
+        
 
         <footer class="footer py-4">
             <div class="container">

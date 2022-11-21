@@ -50,6 +50,13 @@
             <body class="masthead">
               <div class="row">
               <h1>Sign Up</h1>
+                @if(count($errors) >0)
+                    <div class="alert alert-danger">
+                        @foreach($errors->all() as $error)
+                            <p>{{ $error }}</p>
+                        @endforeach
+                    </div>
+                @endif
                 <form action="{{ route('spot.signup') }}" method="post" class="form-horizontal" style="margin-top: 50px;">
                   <div class="form-group">
                     <label class="col-sm-3 control-label" for="InputName">ハンドルネーム</label>

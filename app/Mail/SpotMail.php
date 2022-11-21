@@ -16,10 +16,11 @@ class SpotMail extends Mailable
      *
      * @return void
      */
-    public function __construct($name,$email)
+    public function __construct($name,$email,$comment)
     {
         $this->name = $name;
         $this->email = $email;
+        $this->comment = $comment;
     }
 
     /**
@@ -30,10 +31,11 @@ class SpotMail extends Mailable
     public function build()
     {
         return $this->to($this->email)
-            ->subject('テストタイトル')
+            ->subject($this->name.'さんから追加投稿がありました')
             ->view('spot.mail')
             ->with([
                 'name' => $this->name,
+                'comment' => $this->comment,
             ]);
     }
 }
